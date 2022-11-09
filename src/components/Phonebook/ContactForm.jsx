@@ -11,17 +11,17 @@ export default function ContactForm() {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-  // const noDuplicates = ({ name }) => {
-  //   const result = contacts.find(
-  //     item => item.name.toLowerCase() === name.toLowerCase()
-  //   );
-  //   return result;
-  // };
+  const noDuplicates = ({ name }) => {
+    const result = contacts.find(
+      item => item.name.toLowerCase() === name.toLowerCase()
+    );
+    return result;
+  };
 
   const addConctacts = data => {
-    // if (noDuplicates(data)) {
-    //   return alert(`${data.name} is already in contacts.`);
-    // }
+    if (noDuplicates(data)) {
+      return alert(`${data.name} is already in contacts.`);
+    }
     dispatch(addContact({ id: nanoid(), ...data })) && setName('');
     setNumber('');;
   };
