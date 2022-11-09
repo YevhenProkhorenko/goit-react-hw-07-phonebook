@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import css from '../Phonebook/Phonebook.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
-  const noDuplicates = ({ name }) => {
-    const result = contacts.find(
-      item => item.name.toLowerCase() === name.toLowerCase()
-    );
-    return result;
-  };
+  // const noDuplicates = ({ name }) => {
+  //   const result = contacts.find(
+  //     item => item.name.toLowerCase() === name.toLowerCase()
+  //   );
+  //   return result;
+  // };
 
   const addConctacts = data => {
-    if (noDuplicates(data)) {
-      return alert(`${data.name} is already in contacts.`);
-    }
+    // if (noDuplicates(data)) {
+    //   return alert(`${data.name} is already in contacts.`);
+    // }
     dispatch(addContact({ id: nanoid(), ...data })) && setName('');
     setNumber('');;
   };

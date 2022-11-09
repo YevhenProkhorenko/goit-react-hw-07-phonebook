@@ -30,8 +30,8 @@ export const addContact = createAsyncThunk('contacts/add', async (data, { reject
 },
     {
         condition: (data, { getState }) => {
-            // const { contacts } = getState();
-            if (noDuplicates(data)) {
+            const { contacts } = getState();
+            if (noDuplicates(data, contacts.contacts)) {
       return alert(`${data.name} is already in contacts.`);
     }
     }

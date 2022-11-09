@@ -2,10 +2,10 @@ import React from 'react';
 import css from '../Phonebook/Phonebook.module.scss';
 import { filterContacts } from 'redux/contactsSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 export default function Filter() {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const searchContact = e => {

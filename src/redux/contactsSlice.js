@@ -11,17 +11,11 @@ const initialState = {
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
-  // reducers: {
-  //   // addContact(store, { payload }) {
-  //   //   store.contacts.push(payload);
-  //   // },
-  //   // removeContact(store, { payload }) {
-  //   //   store.contacts = store.contacts.filter(contact => contact.id !== payload);
-  //   // },
-  //   filterContacts(store, { payload }) {
-  //     store.filter = payload;
-  //   },
-  // },
+  reducers: {
+    filterContacts(store, { payload }) {
+      store.filter = payload;
+    },
+  },
   extraReducers: {
     [fetchContacts.pending]: (store) => {
       store.loading = true;
@@ -60,8 +54,6 @@ export const contactsSlice = createSlice({
 
   }
 });
-// export const { filterContacts } =
-//   contactsSlice.actions;
+export const { filterContacts } =
+  contactsSlice.actions;
 export default contactsSlice.reducer;
-// export const { addContact, removeContact, filterContacts } =
-//   contactsSlice.actions;
