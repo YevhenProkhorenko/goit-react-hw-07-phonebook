@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import css from '../Phonebook/Phonebook.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
