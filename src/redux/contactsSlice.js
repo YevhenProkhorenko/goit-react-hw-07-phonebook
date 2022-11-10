@@ -48,7 +48,8 @@ export const contactsSlice = createSlice({
     [removeContact.fulfilled]: (store, { payload }) => {
        store.isLoading = false;
        store.error = null;
-       store.contacts = store.contacts.filter(contact => contact.id !== payload)
+       const index = store.contacts.findIndex(contact => contact.id === payload);
+      store.contacts.splice(index, 1);
     },
     [removeContact.rejected]: (store, { payload}) => {
       store.isLoading = false;

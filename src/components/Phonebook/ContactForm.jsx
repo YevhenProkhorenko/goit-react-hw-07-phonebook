@@ -54,8 +54,9 @@ export default function ContactForm() {
   return (
     <form className={css.formFlex} onSubmit={handleSubmit}>
       <label className={css.labelText}>
-        Name
-        <input
+        Name        
+      </label>
+      <input
         className={css.inputStyles}
         // id={nameInputId}
         type="text"
@@ -66,11 +67,11 @@ export default function ContactForm() {
         value={name}
         onChange={handleChange}
       />
-      </label>      
       <div className={css.formFlex}>
         <label className={css.labelText}>
-          Number
-          <input
+          Number          
+        </label>
+        <input
           className={css.inputStyles}
           // id={numberInputId}
           type="tel"
@@ -81,7 +82,6 @@ export default function ContactForm() {
           value={number}
           onChange={handleChange}
         />
-        </label>        
       </div>
       <button type="submit" className={css.submitButton}>
         Add contact
