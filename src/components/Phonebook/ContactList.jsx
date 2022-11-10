@@ -30,7 +30,7 @@ export default function ContactList() {
   const elements = filteredContactsList.map(contact => {
     return (
       <li key={contact.id} className={css.contactList}>
-        {contact.name}: {contact.number}
+        {contact.name}: {contact.phone}
         <button
           className={(css.submitButton, css.deleteButton)}
           onClick={() => dispatch(removeContact(contact.id))}

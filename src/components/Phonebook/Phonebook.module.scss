@@ -17,6 +17,7 @@
 }
 
 .labelText {
+  width: 300px;
   font-size: 15px;
   margin: 0;
 }
@@ -36,11 +37,12 @@
   background-color: #f5f4fa;
 }
 
-.deleteButton {
-  width: 50px;
+.deleteButton {  
   margin-left: 5px;
 }
 .contactList {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
 }
