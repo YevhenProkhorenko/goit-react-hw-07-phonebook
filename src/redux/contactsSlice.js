@@ -18,37 +18,40 @@ export const contactsSlice = createSlice({
   },
   extraReducers: {
     [fetchContacts.pending]: (store) => {
-      store.loading = true;
+      store.isLoading = true;
     },
      [fetchContacts.fulfilled]: (store, { payload}) => {
-       store.loading = false;
-       store.contacts = payload
+       store.isLoading = false;
+       store.error = null;
+       store.contacts = payload;
     },
     [fetchContacts.rejected]: (store, { payload}) => {
-      store.loading = false;
-      store.error = payload
+      store.isLoading = false;
+      store.error = payload;
     },
     [addContact.pending]: (store) => {
-      store.loading = true;
+      store.isLoading = true;
     },
      [addContact.fulfilled]: (store, { payload}) => {
-       store.loading = false;
+       store.isLoading = false;
+       store.error = null;
        store.contacts.push(payload);
     },
     [addContact.rejected]: (store, { payload}) => {
-      store.loading = false;
+      store.isLoading = false;
       store.error = payload
     },
 
     [removeContact.pending]: (store) => {
-      store.loading = true;
+      store.isLoading = true;
     },
     [removeContact.fulfilled]: (store, { payload }) => {
-       store.loading = false;
+       store.isLoading = false;
+       store.error = null;
        store.contacts = store.contacts.filter(contact => contact.id !== payload)
     },
     [removeContact.rejected]: (store, { payload}) => {
-      store.loading = false;
+      store.isLoading = false;
       store.error = payload
     }
 

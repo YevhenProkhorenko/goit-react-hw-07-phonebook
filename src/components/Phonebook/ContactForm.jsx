@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
-import css from '../Phonebook/Phonebook.module.scss';
+import { useState } from 'react';
+// import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
+import css from '../Phonebook/Phonebook.module.scss';
+
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -22,15 +23,16 @@ export default function ContactForm() {
     if (noDuplicates(data)) {
       return alert(`${data.name} is already in contacts.`);
     }
-    dispatch(addContact({ id: nanoid(), ...data })) && setName('');
+    dispatch(addContact({ ...data })) && setName('');
     setNumber('');;
   };
 
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
+  // const nameInputId = nanoid();
+  // const numberInputId = nanoid();
 
   const handleChange = e => {
     const { name, value } = e.target;
+
     switch (name) {
       case 'name':
         setName(value);
@@ -51,12 +53,11 @@ export default function ContactForm() {
 
   return (
     <form className={css.formFlex} onSubmit={handleSubmit}>
-      <label htmlFor={nameInputId} className={css.labelText}>
+      <label className={css.labelText}>
         Name
-      </label>
-      <input
+        <input
         className={css.inputStyles}
-        id={nameInputId}
+        // id={nameInputId}
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -65,13 +66,13 @@ export default function ContactForm() {
         value={name}
         onChange={handleChange}
       />
+      </label>      
       <div className={css.formFlex}>
-        <label htmlFor={numberInputId} className={css.labelText}>
+        <label className={css.labelText}>
           Number
-        </label>
-        <input
+          <input
           className={css.inputStyles}
-          id={numberInputId}
+          // id={numberInputId}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -80,6 +81,7 @@ export default function ContactForm() {
           value={number}
           onChange={handleChange}
         />
+        </label>        
       </div>
       <button type="submit" className={css.submitButton}>
         Add contact
