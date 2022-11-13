@@ -1,0 +1,27 @@
+.formFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.labelText {
+    width: 300px;
+    font-size: 15px;
+    margin: 0;
+}
+
+.inputStyles {
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.submitButton {
+    width: 100px;
+    padding: 4px 5px;
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+    background-color: #f5f4fa;
+}

@@ -1,0 +1,28 @@
+
+
+.contactList {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.labelText {
+    width: 300px;
+    font-size: 15px;
+    margin: 0;
+}
+
+.submitButton {
+    width: 100px;
+    padding: 4px 5px;
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    cursor: pointer;
+    background-color: #f5f4fa;
+}
+
+.deleteButton {
+    margin-left: 5px;
+}

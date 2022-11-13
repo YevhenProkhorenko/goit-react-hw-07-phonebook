@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from '../Phonebook/Phonebook.module.scss';
+import css from '../CommonWrapper/Wrapper.module.scss';
 
 export default function Wrapper({ title, children }) {
   return (

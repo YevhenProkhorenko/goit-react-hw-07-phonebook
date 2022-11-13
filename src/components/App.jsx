@@ -1,5 +1,5 @@
 import Phonebook from './Phonebook/Phonebook.jsx';
-import Wrapper from './Phonebook/Wrapper.jsx';
+import Wrapper from './CommonWrapper/Wrapper.jsx';
 
 export const App = () => {
   return (

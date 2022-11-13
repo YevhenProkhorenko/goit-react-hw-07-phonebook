@@ -1,6 +1,6 @@
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
+import ContactForm from '../ContactForm/ContactForm.jsx';
+import ContactList from '../ContactList/ContactList.jsx';
+import Filter from '../Filter/Filter';
 import { fetchContacts } from 'redux/operations';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
