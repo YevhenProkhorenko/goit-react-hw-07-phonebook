@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import { removeContact } from 'redux/operations';
 import { selectContacts, selectFilter } from 'redux/selectors';
 import css from '../ContactList/ContactList.module.scss';
@@ -25,6 +26,11 @@ export default function ContactList() {
     return filteredContacts;
   };
 
+  const deleteContact = id => {
+    dispatch(removeContact(id))
+    toast.info('Contact deleted')
+  }
+
   const filteredContactsList = filteredContacts();
 
   const elements = filteredContactsList.map(contact => {
@@ -33,7 +39,7 @@ export default function ContactList() {
         {contact.name}: {contact.phone}
         <button
           className={(css.submitButton, css.deleteButton)}
-          onClick={() => dispatch(removeContact(contact.id))}
+          onClick={() => deleteContact(contact.id)}
         >
           Delete
         </button>

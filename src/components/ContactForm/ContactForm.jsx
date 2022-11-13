@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from '../ContactForm/ContactForm.module.scss';
 
 
@@ -19,9 +21,11 @@ export default function ContactForm() {
   };
 
   const addConctacts = data => {
+    
     if (noDuplicates(data)) {
-      return alert(`${data.name} is already in contacts.`);
+      return toast.warn(`${data.name} is already in contacts.`)      
     }
+    toast.success('Contact added')
     dispatch(addContact({ ...data })) && setName('');
     setPhone('');;
   };
@@ -35,7 +39,7 @@ export default function ContactForm() {
         break;
       case 'phone':
         setPhone(value);
-        break;
+        break;      
       default:
         return;
     }
@@ -80,6 +84,7 @@ export default function ContactForm() {
       <button type="submit" className={css.submitButton}>
         Add contact
       </button>
+      <ToastContainer autoClose={1000} theme="colored" />
     </form>
   );
 }
